@@ -1,4 +1,17 @@
-<p>login works!</p>
+<!-- <p>login works!</p> -->
 
-<app-custom-numberbox label="Textbox"></app-custom-numberbox>
-<app-custom-selectbox label="SelectBox"></app-custom-selectbox>
+<div class="flex flex-col items-center justify-center w-full gap-4 p-4">
+    <h1 class="text-2xl font-bold text-center">Complaint Form</h1>
+
+    <app-custom-textbox class="w-[50%]" name="text" [label]="'Email:'"
+        [placeholder]="'Enter your email'" required>
+    </app-custom-textbox>
+
+    <app-custom-selectbox class="w-[50%]" name="role" [label]="'Role:'"
+        [options]="roles" required>
+    </app-custom-selectbox>
+
+    <app-custom-numberbox class="w-[50%]" name="age" [label]="'Age:'" [min]="1" [max]="120"
+        [placeholder]="'Enter your age'" required>
+    </app-custom-numberbox>
+</div>
