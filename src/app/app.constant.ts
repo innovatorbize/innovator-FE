@@ -12,6 +12,7 @@ export const AppConstant = Object.freeze({
     API_CONFIG: {
         API_URL: {
             LOGIN: {
+                login:"auth/saveSignup"
             },
         },
     },
