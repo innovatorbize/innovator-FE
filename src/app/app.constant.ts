@@ -12,8 +12,17 @@ export const AppConstant = Object.freeze({
     API_CONFIG: {
         API_URL: {
             LOGIN: {
-                login:"auth/saveSignup"
+                login:"auth/login",
+                register:"auth/saveSignUp"
             },
+            MASTERS: {
+                TEST: {
+                    add : "masters/savetests",
+                    list : "masters/testsList",
+                    edit : "masters/editTests",
+                    delete : "masters/deleteTests",
+                }
+            }
         },
     },
 }

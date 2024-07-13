@@ -13,6 +13,17 @@ export class LocalStorageService {
 
     constructor() { }
 
+    private isLocalStorageAvailable(): boolean {
+        try {
+          const test = '__localStorageTest__';
+          localStorage.setItem(test, test);
+          localStorage.removeItem(test);
+          return true;
+        } catch (e) {
+          return false;
+        }
+    }
+
     public saveData(key: any, data: any) {
         localStorage.setItem(key, JSON.stringify(data));
     }
@@ -46,6 +57,7 @@ export class LocalStorageService {
     }
 
     getItem(key: string) {
+        if (this.isLocalStorageAvailable()) {
         let sType = localStorage.getItem(AppConstant.LOCALSTORAGE.SESSIONTYPE);
 
         let sessionHandler: Storage;
@@ -62,7 +74,7 @@ export class LocalStorageService {
             return JSON.parse(item);
         } catch (error) {
             return item;
-        }
+        }}
     }
 
     removeItem(key: string) {
