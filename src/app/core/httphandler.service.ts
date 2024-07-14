@@ -21,7 +21,6 @@ export class HttphandlerService {
                 "authorization": accesstoken.token,
             };
         }
-
         return this.http.get(url, {
             headers: {
                 ...headers,
@@ -31,12 +30,12 @@ export class HttphandlerService {
 
     POST(url: string, data: any, options?: any): Observable<any> {
         let accesstoken = this.localStorageService.getItem(
-            AppConstant.LOCALSTORAGE.TOKEN
+            'authorization'
         );
         let headers;
         if (accesstoken) {
             headers = {
-                "authorization": accesstoken.token,
+                "Authorization": accesstoken,
             };
         }
 

@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
     constructor(private auth: LocalStorageService, private router: Router) { }
 
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        if (this.auth.getItem("isVerified")) {
+        if (this.auth.getItem("authorization")) {
             return true;
         } else {
             this.router.navigate(["login"], {

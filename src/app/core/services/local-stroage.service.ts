@@ -24,15 +24,15 @@ export class LocalStorageService {
         }
     }
 
-    public saveData(key: any, data: any) {
-        localStorage.setItem(key, JSON.stringify(data));
-    }
-    public getData(key: any) {
-        return JSON.parse(localStorage.getItem(key)!);
-    }
-    public removeData(key: any) {
-        localStorage.removeItem(key);
-    }
+    // public saveData(key: any, data: any) {
+    //     localStorage.setItem(key, JSON.stringify(data));
+    // }
+    // public getData(key: any) {
+    //     return JSON.parse(localStorage.getItem(key)!);
+    // }
+    // public removeData(key: any) {
+    //     localStorage.removeItem(key);
+    // }
 
 
     setItem(key: string, item: any, notify = false) {
@@ -45,7 +45,6 @@ export class LocalStorageService {
         } else {
             sessionHandler = localStorage;
         }
-
         const olddata = sessionHandler.getItem(this.prefix + key);
         if (olddata != null) {
             sessionHandler.removeItem(this.prefix + key);
@@ -67,7 +66,6 @@ export class LocalStorageService {
         } else {
             sessionHandler = localStorage;
         }
-
         const item = sessionHandler.getItem(this.prefix + key) || "";
 
         try {

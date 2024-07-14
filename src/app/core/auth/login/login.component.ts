@@ -45,7 +45,7 @@ export class LoginComponent {
         console.log(response.result.log);
         if(response.result.log)
         {
-          this.localstr.saveData('authorization', response.result.jwt);
+          this.localstr.setItem('authorization', response.result.jwt);
           console.log('Data successfully sent');
         }
       }
