@@ -5,7 +5,7 @@ import { CustomSelectBoxComponent } from '../../../components/custom-selectbox/c
 import { CustomTextboxComponent } from '../../../components/custom-textbox/custom-textbox.component';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { response } from 'express';
+import { Router } from '@angular/router';
 import { LoginService } from '../../../login.service';
 import { LocalStorageService } from '../../services/local-stroage.service';
 
@@ -21,7 +21,7 @@ export class LoginComponent {
   loginData : any = {
   };
 
-  constructor(private loginservice : LoginService, private localstr : LocalStorageService) {
+  constructor(private loginservice : LoginService, private localstr : LocalStorageService, private router: Router) {
   }
 
   ngOnInit() {
@@ -47,6 +47,7 @@ export class LoginComponent {
         {
           this.localstr.setItem('authorization', response.result.jwt);
           console.log('Data successfully sent');
+          this.router.navigate(['/home']);
         }
       }
     )
